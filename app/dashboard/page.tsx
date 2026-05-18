@@ -13,9 +13,9 @@ export default async function DashboardPage() {
 
   const stats = {
     total: jobs.length,
-    applied: jobs.filter((j) => j.status === "APPLIED").length,
-    interview: jobs.filter((j) => j.status === "INTERVIEW").length,
-    offer: jobs.filter((j) => j.status === "OFFER").length,
+    applied: jobs.filter((j: any) => j.status === "APPLIED").length,
+    interview: jobs.filter((j: any) => j.status === "INTERVIEW").length,
+    offer: jobs.filter((j: any) => j.status === "OFFER").length,
   };
 
   return (
@@ -23,15 +23,10 @@ export default async function DashboardPage() {
       <nav className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <h1 className="text-lg font-semibold text-gray-900">Job Tracker</h1>
         <div className="flex items-center gap-3">
-          <img
-            src={session.user.image ?? ""}
-            alt={session.user.name ?? ""}
-            className="w-8 h-8 rounded-full"
-          />
+          <img src={session.user.image ?? ""} alt={session.user.name ?? ""} className="w-8 h-8 rounded-full"/>
           <span className="text-sm text-gray-600">{session.user.name}</span>
         </div>
       </nav>
-
       <main className="max-w-6xl mx-auto px-6 py-8">
         <div className="grid grid-cols-4 gap-4 mb-8">
           {[
@@ -46,18 +41,11 @@ export default async function DashboardPage() {
             </div>
           ))}
         </div>
-
         <div className="bg-white rounded-2xl border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-base font-semibold text-gray-900">
-              Applications
-            </h2>
-            <a href="/dashboard/add" className="bg-gray-900 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">
-  + Add Job
-</a>
-            
+            <h2 className="text-base font-semibold text-gray-900">Applications</h2>
+            <a href="/dashboard/add" className="bg-gray-900 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors">+ Add Job</a>
           </div>
-
           {jobs.length === 0 ? (
             <div className="text-center py-12 text-gray-400">
               <p className="text-lg">No applications yet</p>
@@ -65,7 +53,7 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div className="divide-y divide-gray-100">
-              {jobs.map((job) => (
+              {jobs.map((job: any) => (
                 <div key={job.id} className="py-4 flex items-center justify-between">
                   <div>
                     <div className="font-medium text-gray-900">{job.company}</div>

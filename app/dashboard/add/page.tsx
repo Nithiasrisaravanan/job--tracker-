@@ -13,10 +13,8 @@ export default async function AddJobPage() {
           ← Back to Dashboard
         </a>
       </nav>
-
       <main className="max-w-xl mx-auto px-6 py-8">
         <h1 className="text-xl font-semibold text-gray-900 mb-6">Add Application</h1>
-
         <form action={addJob} className="bg-white rounded-2xl border border-gray-200 p-6 flex flex-col gap-4">
           <div>
             <label className="text-sm font-medium text-gray-700 block mb-1">Company *</label>
